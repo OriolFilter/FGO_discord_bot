@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Embed Generator</title>
+    <script>
+        function embed_form() {
+            output.innerHTML = "{\n";
+            if (var_name.value != "") { //Embed_variable
+                output.innerHTML = output.innerHTML +"\t"+ var_name.value +' = discord.Embed(title="'+embed_title.value+'", description="'+embed_description.value+'", url="'+embed_URL.value+'"';
+                if (embed_color.value != "") {
+                    output.innerHTML = output.innerHTML + ', color=0x'+embed_color.value;
+                }
+                output.innerHTML = output.innerHTML +')';
+                //closing embed_variable attributes line
+
+                if (field_name.value != "") { //embed_thumbnail
+                    output.innerHTML = output.innerHTML +"\n\t"+ var_name.value +'.set_thumbnail(url="'+embed_thumbnail.value+'")';
+                }
+
+                if (field_name.value != "") { //embed_field
+                    output.innerHTML = output.innerHTML +"\n\t"+var_name.value+'.add_field(name="'+field_name.value+'", value="'+field_value.value+'", inline='+field_inline.value+')';
+                }
+                output.innerHTML = output.innerHTML +"\n\tawait ctx.send(embed="+var_name.value+")";
+
+            } else { //in case it's empty
+                output.innerHTML = document.getElementById("output").innerHTML + "\tVariable name is required!";
+            }
+            output.innerHTML = output.innerHTML + "\n}";
+        }
+    </script>
+</head>
+<body>
+
+
+<!--<div name="Embed_form">-->
+<form name="Embed_form">
+    <h3>Embed Generator</h3>
+    Variable name:<br>
+    <input type="text" id="var_name">
+    <br>Embed title:<br>
+    <input type="text" id="embed_title">
+    <br>Embed URL:<br>
+    <input type="text" id="embed_URL">
+    <br>Embed description:<br>
+    <input type="text" id="embed_description">
+    <br>Embed thumbnail:<br>
+    <input type="text" id="embed_thumbnail">
+    <br>Embed color (hex):<br>
+    <input type="text" id="embed_color">
+    <h4>Field Generator</h4>
+    Field name:<br>
+    <input type="text" id="field_name">
+    <br>Field value:<br>
+    <input type="text" id="field_value">
+    <br>Field Inline (default:false):<br>
+    <select id="field_inline">
+        <option value="False">False</option>
+        <option value="True">True</option>
+    </select><br><br>
+    <button type="button" onclick="embed_form()">Generate code!</button>
+</form>
+
+<pre id="output">TEXTOUTPUT</pre>
+<p hidden>nota: fer servir float left per al boto i el text dins un quadrat?</p>
+</body>
+</html>
