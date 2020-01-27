@@ -40,6 +40,7 @@ async def aevents(ctx): #active events
 
     ac_ev_list = discord.Embed(title="FGO active events", description="FGO (USA)", color=0x00ff00)
     ac_ev_list.add_field(name="Fate/Grand Order Absolute Demonic Front: Babylonia Anime Release Campaign Part II (US)", value="Duration: January 20th 20:00 - January 29th 19:59 PST\nRequisites: Clear Fuyuki", inline=True)
+    ac_ev_list.add_field(name="The Tale of Setsubun (US)", value="Duration: January 27th 00:00 - February 2nd 19:59 PST\nRequisites: Clear Solomon", inline=True)
     await ctx.send(embed=ac_ev_list)
 
     ev1 = discord.Embed(title="Fate/Grand Order Absolute Demonic Front: Babylonia Anime Release Campaign Part II (US)", url="https://fategrandorder.fandom.com/wiki/Fate/Grand_Order_Absolute_Demonic_Front:_Babylonia_Anime_Release_Campaign_Part_II_(US)", color=0x345ceb)
@@ -50,20 +51,20 @@ async def aevents(ctx): #active events
     ev1.add_field(name="Social Media Campaing:", value="Distribution Period: January 22nd 20:00 - January 29th 19:59 PST", inline=False)
     await ctx.send(embed=ev1)
 
+    tale_of_setsubun = discord.Embed(title="The Tale of Setsubun (US)", description="Duration: January 27th 00:00 - February 2nd 19:59 PST\nRequisites: Clear Solomon", url="https://fategrandorder.fandom.com/wiki/The_Tale_of_Setsubun_(US)", color=0xcf1f33)
+    tale_of_setsubun.set_thumbnail(url="https://vignette.wikia.nocookie.net/fategrandorder/images/d/dc/SetsubunEventUS.png/revision/latest/scale-to-width-down/680?cb=20200120050724")
+    tale_of_setsubun.add_field(name="Requisites:", value="Clear Solomon", inline=False)
+    tale_of_setsubun.add_field(name="Duration:", value="January 27th 00:00 - February 2nd 19:59 PST", inline=False)
+    await ctx.send(embed=tale_of_setsubun)
+
     #USE THIS IN A FUTURE: https://stackoverflow.com/questions/55075157/discord-rich-embed-buttons
 
 @bot.command()
 async def fevents(ctx): #future events
 
     fe_ev_list = discord.Embed(title="FGO future events", description="FGO (USA)", color=0x03c6da)
-    fe_ev_list.add_field(name="The Tale of Setsubun (US)", value="Duration: January 27th 00:00 - February 2nd 19:59 PST\nRequisites: Clear Solomon", inline=True)
+    fe_ev_list.add_field(name="Empty", value="Waiting for new news", inline=True)
     await ctx.send(embed=fe_ev_list)
-
-    tale_of_setsubun = discord.Embed(title="The Tale of Setsubun (US)", description="Duration: January 27th 00:00 - February 2nd 19:59 PST\nRequisites: Clear Solomon", url="https://fategrandorder.fandom.com/wiki/The_Tale_of_Setsubun_(US)", color=0xcf1f33)
-    tale_of_setsubun.set_thumbnail(url="https://vignette.wikia.nocookie.net/fategrandorder/images/d/dc/SetsubunEventUS.png/revision/latest/scale-to-width-down/680?cb=20200120050724")
-    tale_of_setsubun.add_field(name="Requisites:", value="Clear Solomon", inline=False)
-    tale_of_setsubun.add_field(name="Duration:", value="January 27th 00:00 - February 2nd 19:59 PST", inline=False)
-    await ctx.send(embed=tale_of_setsubun)
 
 
 #Class
